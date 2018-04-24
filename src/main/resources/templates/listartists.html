@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org">
+
+<head th:insert="/fragments/navbase::head">
+
+</head>
+
+<body>
+
+<!-- Navigation -->
+<nav>
+</nav>
+
+<!-- Header -->
+
+<!--Content-->
+<!-- Page Content -->
+<div class="container">
+
+    <!-- Jumbotron Header -->
+    <header class="jumbotron my-4">
+        <h1 class="display-3">Artists</h1>
+        <p class="lead">Thesse are the artists that have been added.</p>
+        <a href="/addartist" class="btn btn-primary btn-lg">Add An Artist</a>
+    </header>
+
+    <!--Start of For Each Car-->
+    <div th:each="eachArtist:${artists}">
+        <!-- Page Features -->
+        <div class="row text-center">
+
+            <div class="col-lg-3 col-md-6 mb-4">
+                <div class="card">
+                    <img class="card-img-top" th:src="${eachArtist.image}" alt="">
+                    <div class="card-body">
+                        <h4 class="card-title"><a th:text="${eachArtist.stageName}"></a></h4>
+                        <span class="card-text"><p th:text="${eachArtist.fullName}"></p></span>
+                    </div>
+                    <!--                    <div class="card-footer">
+                                            <a th:text="${eachCar.available}?'Available For Rent'" th:href="@{/changestatus/{id}(id=${eachArtist.id})}" class="btn btn-primary btn-sm"></a>
+                                            <a th:href="@{/update/{id}(id=${eachArtist.id})}"class="btn btn-primary btn-sm">Update</a>
+                                        </div>-->
+                </div>
+            </div>
+        </div>
+        <!-- /.row -->
+    </div>
+    <!--/End of For Each Car-->
+
+
+<!-- Bootstrap core JavaScript -->
+<span th:insert="/fragments/navbase::js"></span>
+
+</body>
+
+</html>

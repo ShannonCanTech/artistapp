@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org">
+
+<head th:insert="/fragments/navbase::head">
+
+</head>
+
+<body>
+
+<!-- Navigation -->
+<nav th:insert="/fragments/navbase::navigation(somestuff)">
+</nav>
+
+<!--Header-->
+<div class="container form-header">
+    <h1 class="mb-1">Add A Song</h1>
+</div>
+
+<!--Form Area-->
+<form action="/savesong" th:object="${aSong}" method="post">
+    <div class="container">
+        <input type="hidden" th:field="*{id}">
+
+        <div class="form-group row">
+            <label for="songTitle" class="col-2 col-form-label">Song Title: </label>
+            <div class="col-10">
+                <input class="form-control" type="text" th:field="*{songTitle}" placeholder="Insert Song Title" id="songTitle">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="releaseYear" class="col-2 col-form-label">Release Year: </label>
+            <div class="col-10">
+                <input class="form-control" type="text" th:field="*{releaseYear}" placeholder="Insert Release Year" id="releaseYear">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="leadArtist" class="col-2 col-form-label">Lead Artist: </label>
+            <div class="col-10">
+                <input class="form-control" type="text" th:field="*{leadArtist}" placeholder="Insert lead artist" id="leadArtist">
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+
+    </div>
+</form>
+
+<!-- Bootstrap core JavaScript -->
+<span th:insert="/fragments/navbase::js"></span>
+
+</body>
+
+</html>
